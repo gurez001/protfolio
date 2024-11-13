@@ -24,10 +24,10 @@
   font-weight: 100 900; /* Range of available font weights */
   font-style: normal;
 }
-.custom-font {
+h1,h2,h3,h4 {
   font-family: 'MontserratAlternates', sans-serif;
 }
-body {
+body,p {
   font-family: 'Roboto Flex', sans-serif;
   font-weight: 400; /* Example usage of variable weight */
 }
