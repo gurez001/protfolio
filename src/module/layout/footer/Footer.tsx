@@ -18,10 +18,10 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
-              <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
               <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</Link>
-              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
+              <Link href="/about-us" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
+              <Link href="/contact-us" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
+              <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy policy</Link>
             </nav>
           </div>
           <div className="space-y-4">

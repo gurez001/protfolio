@@ -23,10 +23,9 @@ import { Menu, Search } from 'lucide-react'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar' // Added missing imports
 
 const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'Products', path: '/products' },
-  { name: 'Pricing', path: '/pricing' },
-  { name: 'About', path: '/about' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'About us', path: '/about-us' },
 ]
 
 export default function Header() {

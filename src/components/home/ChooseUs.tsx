@@ -54,9 +54,9 @@ export default function ChooseUs() {
           </div>
           <div>
             <h2 className="text-4xl font-bold mb-6">
-              <span className="text-red-600">Why</span> Choose Us ?
+              <span className="text-gray-500">Why</span> Choose Us ?
             </h2>
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 text-sm">
               At Arramton, We Ensure the amazing blend of the human brain and tech innovation while creating the most adaptive keys in mobility for different business domains across the world.
             </p>
           </div>
@@ -68,11 +68,11 @@ export default function ChooseUs() {
               <CardHeader className="space-y-1">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-50">
-                    <feature.icon className="w-6 h-6 text-blue-600" />
+                    <feature.icon className="w-6 h-6 text-black" />
                   </div>
                   <div>
                     <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    <p className="text-blue-600 font-medium">{feature.description}</p>
+                    <p className="text-gray-600 font-medium">{feature.description}</p>
                   </div>
                 </div>
               </CardHeader>
