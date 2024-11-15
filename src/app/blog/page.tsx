@@ -1,4 +1,4 @@
-import Index from '@/module/blog'
+import Index from '@/module/blog/Index'
 import { Metadata } from 'next'
 import React from 'react'
 export const metadata: Metadata = {
