@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { motion, useAnimation, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import InfintySliderTb from '@/module/common/InfintySliderTb'
+import InfintySliderTb from '@/components/common/InfintySliderTb'
 
 export default function HeroSection() {
     const ref = useRef<HTMLDivElement>(null)

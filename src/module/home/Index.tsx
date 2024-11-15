@@ -6,8 +6,8 @@ import HeroSection from './HeroSection'
 import OurProjects from './OurProjects'
 import OurBlog from './OurBlog'
 import ChooseUs from './ChooseUs'
-import InfintySliderLR from '@/module/common/InfintySliderLR'
-import FAQAccordion from '@/module/common/FAQAccordion'
+import InfintySliderLR from '@/components/common/InfintySliderLR'
+import FAQAccordion from '@/components/common/FAQAccordion'
 import Image from 'next/image'
 
 const Index = () => {
