@@ -1,14 +1,15 @@
 import { ReactNode } from "react";
-import { Montserrat_Alternates  } from "next/font/google";
+import { Montserrat_Alternates } from "next/font/google";
 
 import "./globals.css";  // Global CSS file
 import { Toaster } from 'react-hot-toast';
 import Header from "@/module/layout/header/Header";
 import Footer from "@/module/layout/footer/Footer";
 import type { Metadata } from "next";
+import StoreProvider from "@/store";
 
 // Font configuration (optional)
-const montserrat_Alternates  = Montserrat_Alternates ({ subsets: ["latin"],  weight: ["400", "600"],  });
+const montserrat_Alternates = Montserrat_Alternates({ subsets: ["latin"], weight: ["400", "600"], });
 interface RootLayoutProps {
   children: ReactNode;
 }
@@ -55,11 +56,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={montserrat_Alternates.className}>
-        <Header />
-        {children}
-        <Toaster
-        />
-        <Footer/>
+        <StoreProvider>
+          <Header />
+          {children}
+          <Toaster
+          />
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
