@@ -51,7 +51,7 @@ export default function OurBlog() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid gap-8 md:grid-cols-3"
+          className="grid gap-8 grid-cols-2 md:grid-cols-3"
         >
           {isLoading ? [...Array(6)].map((_: any, i: number) => <SkeletonPostCard key={i} />) :
             apiData?.result?.map((project: any) => (
