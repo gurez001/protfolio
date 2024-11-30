@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Phone, Mail, Send } from 'lucide-react'
+import Link from 'next/link'
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -84,15 +85,15 @@ export default function Index() {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-2">
                 <MapPin className="text-primary" />
-                <span>123 Web Dev Street, Karnal, Haryana 132001, India</span>
+                <span>Sector-6, Karnal, Haryana 132001, India</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="text-primary" />
-                <span>+91 1234567890</span>
+                <span><Link href={"tel:+918816041566"}>+91 8816041566</Link></span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="text-primary" />
-                <span>hello@karnalwebtech.com</span>
+                <span>karnalwebtech@gmail.com</span>
               </div>
             </CardContent>
             <CardFooter>
@@ -154,7 +155,7 @@ export default function Index() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="bg-black hover:bg-white w-full">
                     <Send className="mr-2 h-4 w-4" /> Send Message
                   </Button>
                 </form>

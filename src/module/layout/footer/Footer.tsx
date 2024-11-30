@@ -10,9 +10,9 @@ export default function Footer() {
       <div className="container px-4 py-10 mx-auto">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">John Doe</h3>
+            <h3 className="text-lg font-semibold">Karnalwebtech</h3>
             <p className="text-sm text-muted-foreground">
-              Full-stack developer passionate about creating innovative web solutions. Let build something amazing together!
+            Crafting cutting-edge web solutions to bring your ideas to life. Let’s build something extraordinary together!
             </p>
           </div>
           <div className="space-y-4">
@@ -28,13 +28,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Stay Updated</h3>
             <form className="space-y-2">
               <Input type="email" placeholder="Enter your email" />
-              <Button type="submit" className="w-full">Subscribe</Button>
+              <Button  className="w-full bg-black hover:text-black">Subscribe</Button>
             </form>
           </div>
         </div>
         <Separator className="my-8" />
         <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
-          <p className="text-sm text-muted-foreground">© 2023 John Doe. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2023 Karnalwebtech. All rights reserved.</p>
           <div className="flex space-x-4">
             <Link href="https://github.com" className="text-muted-foreground hover:text-foreground transition-colors">
               <Github className="w-5 h-5" />

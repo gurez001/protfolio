@@ -6,19 +6,24 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Code, Laptop, Smartphone, Globe, Zap, Users, Coffee, ShoppingCart, Search } from 'lucide-react'
+import { Code, Laptop, Smartphone, Globe, Zap, Users, Coffee, ShoppingCart, Search, PanelsTopLeft, Palette, Link, Store } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export default function Index() {
     const [hoveredService, setHoveredService] = useState<number | null>(null)
-
+    const router = useRouter();
     const services = [
         { icon: Laptop, title: "Custom Website Development", description: "Tailored websites that reflect your brand and drive results." },
         { icon: ShoppingCart, title: "eCommerce Development", description: "Seamless, secure, and scalable online stores for your business." },
         { icon: Smartphone, title: "Mobile App Development", description: "Engaging mobile apps for iOS and Android platforms." },
         { icon: Search, title: "Search Engine Optimization", description: "Boost your online visibility and drive organic traffic." },
         { icon: Code, title: "Content Management Systems", description: "User-friendly, scalable, and customizable CMS solutions." },
-    ]
-
+        { icon: PanelsTopLeft, title: "Content Writing", description: "High-quality, engaging content to captivate your audience." },
+        { icon: Palette, title: "Graphic Design", description: "Creative and impactful designs to elevate your brand's presence." },
+        { icon: Link, title: "Backlinking Services", description: "Quality backlinks to strengthen your SEO strategy and rankings." },
+        { icon: Store, title: "Commerce Listing Services", description: "Optimize your product listings to increase visibility and sales." }
+    ];
+    
     const teamMembers = [
         { name: "Amit Sharma", role: "Founder & Lead Developer", image: "/placeholder.svg?height=100&width=100" },
         { name: "Priya Gupta", role: "UI/UX Designer", image: "/placeholder.svg?height=100&width=100" },
@@ -50,7 +55,7 @@ export default function Index() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                    <Button size="lg" className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
+                    <Button onClick={()=>router.push('/contact-us')} size="lg" className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
                         <Coffee className="mr-2 h-5 w-5" /> Get in Touch
                     </Button>
                 </motion.div>
@@ -156,7 +161,7 @@ export default function Index() {
                 >
                     <h2 className="text-3xl font-semibold mb-4">Ready to Transform Your Digital Presence?</h2>
                     <p className="text-xl text-muted-foreground mb-8">Let's create a powerful web solution together.</p>
-                    <Button size="lg" className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
+                    <Button onClick={()=>router.push('/contact-us')} size="lg" className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
                         <Zap className="mr-2 h-5 w-5" /> Start Your Project
                     </Button>
                 </motion.div>
