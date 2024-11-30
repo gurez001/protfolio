@@ -4,11 +4,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { useGetAllPostQuery } from '@/state/postApi'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import SkeletonPostCard from '@/components/skeleton/skeleton-post-card'
 
 const BlogCard = ({ data }: { data: any }) => {
     const router = useRouter()

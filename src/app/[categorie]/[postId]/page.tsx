@@ -2,7 +2,7 @@ import { fetchData } from "@/lib/api";
 import BlogPage from "@/module/blog/single-blog-page";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import React, { cache, memo } from "react";
+import React, { memo } from "react";
 
 interface SlugPageProps {
   params: {
