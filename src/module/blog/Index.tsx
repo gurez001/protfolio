@@ -15,7 +15,7 @@ import useFilteredAndSorted from '@/hook/useFilteredAndSorted'
 import { BlogFooter } from '../layout/footer/blog-footer'
 import Sidebar from '../layout/sidebar/blog-sidebar'
 import SkeletonBlogCard from '@/components/skeleton/skelrton-blog-card'
-export default function Index({ cat_id }: { cat_id: any }) {
+export default function Index({ cat_id }: { cat_id?: any }) {
   console.log(cat_id)
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1)
