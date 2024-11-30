@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { LayoutDashboard, Smartphone, Code, Settings, ThumbsUp, LineChart, Palette, Share2, Megaphone, PenTool } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export default function ServiceSecton() {
+  const router = useRouter()
   const services = [
     {
       icon: LayoutDashboard,
@@ -85,7 +87,7 @@ export default function ServiceSecton() {
 
   return (
     <section className="py-16 px-4 ">
-       
+
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl font-bold tracking-tight mb-4 md:text-4xl lg:text-5xl">
@@ -96,7 +98,7 @@ export default function ServiceSecton() {
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
@@ -109,7 +111,7 @@ export default function ServiceSecton() {
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center gap-[4px]">
                     <service.icon className="text-lg" />
-                  <h3 className="text-lg font-semibold">{service.title}</h3>
+                    <h3 className="text-lg font-semibold">{service.title}</h3>
                   </div>
                   <p className="text-muted-foreground text-sm">{service.description}</p>
                 </CardContent>
@@ -118,14 +120,14 @@ export default function ServiceSecton() {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Button size="lg" className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
+          <Button onClick={() => router.push('/contect-us')} size="lg" className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
             LET&apos;S TALK
           </Button>
         </motion.div>

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     images: ["https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=490,fit=crop,q=95/m2WrzgBy7ZcEOgWj/logo1-1-YBgynG911Bh0OWvN.png"],
   },
   robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1",
+  // viewport: "width=device-width, initial-scale=1",
   alternates: {
     canonical: "https://www.karnalwebtech.com",
   },

@@ -9,6 +9,9 @@ export default function TechnologyStack() {
     const technologies = [
         { name: 'HTML', icon: FileCode2, description: 'The standard markup language for Web pages' },
         { name: 'CSS', icon: Css3, description: 'Styling language used for describing the presentation of a document' },
+        { name: 'WordPress', icon: Globe, description: 'Open-source content management system' },
+        { name: 'Squarespace', icon: ShoppingBag, description: 'Website builder and hosting platform' },
+        { name: 'Wix', icon: ShoppingBag, description: 'Website builder and hosting platform' },
         { name: 'JavaScript', icon: FileJson, description: 'High-level, interpreted programming language' },
         { name: 'React', icon: React, description: 'A JavaScript library for building user interfaces' },
         { name: 'React Native', icon: Smartphone, description: 'Framework for building native apps using React' },
@@ -18,8 +21,6 @@ export default function TechnologyStack() {
         { name: 'Redux', icon: Workflow, description: 'A Predictable State Container for JS Apps' },
         { name: 'Material UI', icon: Cog, description: 'React components for faster and easier web development' },
         { name: 'MongoDB', icon: Database, description: 'Source-available cross-platform document-oriented database' },
-        { name: 'WordPress', icon: Globe, description: 'Open-source content management system' },
-        { name: 'Squarespace', icon: ShoppingBag, description: 'Website builder and hosting platform' },
         { name: 'Framer Motion', icon: FramerLogo, description: 'A production-ready motion library for React' },
         { name: 'shadcn/ui', icon: Cog, description: 'Beautifully designed components built with Radix UI and Tailwind CSS' },
         { name: 'Tailwind CSS', icon: Cloud, description: 'A utility-first CSS framework for rapid UI development' },
@@ -27,28 +28,33 @@ export default function TechnologyStack() {
         { name: 'Canva', icon: ImageIcon, description: 'Online design and publishing tool' },
         { name: 'Adobe Creative Suite', icon: Palette, description: 'Collection of creative software for design, video, and web development' },
     ]
-
     const containerVariants = {
-        hidden: { opacity: 0 },
+        hidden: {},
         visible: {
-            opacity: 1,
             transition: {
                 staggerChildren: 0.1
             }
         }
     }
 
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+    const cardVariants = {
+        hidden: {
+            opacity: 0,
+            y: 20
+        },
         visible: {
+            opacity: 1,
             y: 0,
-            opacity: 1
+            transition: {
+                duration: 0.5,
+                ease: 'easeOut'
+            }
         }
     }
 
     return (
         <section className=" px-4 py-16 bg-white">
-            
+
             <div className="container mx-auto max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -65,13 +71,15 @@ export default function TechnologyStack() {
                 </motion.div>
 
                 <motion.div
+                    className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3"
                     variants={containerVariants}
                     initial="hidden"
-                    animate="visible"
-                    className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
                 >
                     {technologies.map((tech, index) => (
-                        <motion.div key={tech.name} variants={itemVariants}>
+                        <motion.div key={index} variants={cardVariants}>
+
                             <Card className="h-full bg-gray-100 transition-shadow hover:shadow-lg">
                                 <CardContent className="p-6">
                                     <div className="flex items-center mb-4">
@@ -86,11 +94,13 @@ export default function TechnologyStack() {
                     ))}
                 </motion.div>
 
+
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
                     className="text-center mt-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 }}
                 >
                     <p className="text-gray-600 mb-4">
                         And many more cutting-edge tools and frameworks!
