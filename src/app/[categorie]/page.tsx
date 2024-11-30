@@ -2,13 +2,15 @@ import { fetchData } from "@/lib/api";
 import Index from "@/module/blog/Index";
 import { Metadata } from "next";
 import { memo } from "react";
+
 interface SlugPageProps {
   params: {
     categorie: string;
   };
 }
 
-export async function genrateStaticParams() {
+// Corrected function name
+export async function generateStaticParams() {
   const { data } = await fetchData(`categorie`);
   const result = data?.result || [];
 
@@ -18,7 +20,7 @@ export async function genrateStaticParams() {
   }
 
   // Map over result to extract slugs
-  return result.map(({ slug }) => slug).slice(0,30);
+  return result.map(({ slug }) => ({ categorie: slug })).slice(0, 30); // Include keys for dynamic routes
 }
 
 export async function generateMetadata({
@@ -41,9 +43,11 @@ export async function generateMetadata({
     };
   }
 }
+
+// Memoized component for better performance
 const MemoizedBlogPage = memo(Index);
 
-export default async function page({ params: { categorie } }: SlugPageProps) {
+export default async function Page({ params: { categorie } }: SlugPageProps) {
   const { data } = await fetchData(`categorie/shop/${categorie}`);
   return (
     <div>
