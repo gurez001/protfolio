@@ -37,7 +37,7 @@ export default function HeroSection() {
         >
             <div className="bg-[#00000094]">
 
-                <div className='min-h-auto py-8 lg:min-h-[600px] block lg:flex items-center max-w-[1380px] m-auto'>
+                <div className='min-h-auto py-8 lg:min-h-[650px] block lg:flex items-center max-w-[1380px] m-auto'>
                     <div className="w-full lg:w-[40%] text-center lg:text-center lg:text-end relative z-10 p-2">
                         <h1  className="text-3xl md:text-4xl text-white font-bold mb-6">
                             Your Business<br />

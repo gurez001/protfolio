@@ -50,7 +50,8 @@ export default function ChooseUs() {
             <Image
               src="/upload/people-creating-social-media-landing-page_52683-38062.jpg"
               alt="Businessman with checklist"
-              fill
+              width={100}
+              height={100}
               className="w-full max-w-md mx-auto"
             />
           </div>

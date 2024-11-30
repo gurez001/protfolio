@@ -20,14 +20,19 @@ export async function generateMetadata({
     return {
       title: data?.title || "Default Title",
       description: data?.meta_description || "Default Description",
-      openGraph: {
-        images: [{ url: data?.canonical_url || "/default-image.jpg" }],
-      },
+      // openGraph: {
+      //   images: [{ url: data?.canonical_url || "/default-image.jpg" }],
+      // },
     };
-  } catch {
+  } catch (error) {
+    // If it's a NEXT_NOT_FOUND error, let it propagate
+    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+      throw error;
+    }
+    // For other errors, return a fallback metadata
     return {
-      title: "Default Title",
-      description: "Default Description",
+      title: 'Post Not Found',
+      // ... other fallback metadata
     };
   }
 }
@@ -35,13 +40,22 @@ const MemoizedBlogPage = memo(BlogPage);
 export default async function Blog({
   params: { postId, categorie },
 }: SlugPageProps) {
-  const { data } = await fetchData(`post/blog/${postId}`);
-  if (categorie.toLowerCase() !== data.categorie[0].title.toLowerCase()) {
-    notFound(); // Trigger 404 if category doesn't match
+  try {
+    const { data } = await fetchData(`post/blog/${postId}`);
+    if (categorie.toLowerCase() !== data.categorie[0].title.toLowerCase()) {
+      notFound(); // Trigger 404 if category doesn't match
+    }
+    return (
+      <div>
+        <MemoizedBlogPage apidata={data} />
+      </div>
+    );
+  } catch (error) {
+    // If it's a NEXT_NOT_FOUND error, let it propagate
+    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+      throw error;
+    }
+    // For other errors, you can render an error state
+    return <div>An error occurred while loading the blog post.</div>;
   }
-  return (
-    <div>
-      <MemoizedBlogPage apidata={data} />
-    </div>
-  );
 }

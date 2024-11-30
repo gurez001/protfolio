@@ -32,14 +32,19 @@ export async function generateMetadata({
     return {
       title: data?.title || "Default Title",
       description: data?.meta_description || "Default Description",
-      openGraph: {
-        images: [{ url: data?.canonical_url || "/default-image.jpg" }],
-      },
+      // openGraph: {
+      //   images: [{ url: data?.canonical_url || "/default-image.jpg" }],
+      // },
     };
-  } catch {
+  } catch (error) {
+    // If it's a NEXT_NOT_FOUND error, let it propagate
+    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+      throw error;
+    }
+    // For other errors, return a fallback metadata
     return {
-      title: "Default Title",
-      description: "Default Description",
+      title: 'Post Not Found',
+      // ... other fallback metadata
     };
   }
 }
@@ -48,10 +53,19 @@ export async function generateMetadata({
 const MemoizedBlogPage = memo(Index);
 
 export default async function Page({ params: { categorie } }: SlugPageProps) {
-  const { data } = await fetchData(`categorie/shop/${categorie}`);
-  return (
-    <div>
-      <MemoizedBlogPage cat_id={data?._id} />
-    </div>
-  );
+  try {
+    const { data } = await fetchData(`categorie/shop/${categorie}`);
+    return (
+      <div>
+        <MemoizedBlogPage cat_id={data?._id} />
+      </div>
+    );
+  } catch (error) {
+    // If it's a NEXT_NOT_FOUND error, let it propagate
+    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+      throw error;
+    }
+    // For other errors, you can render an error state
+    return <div>An error occurred while loading the blog post.</div>;
+  }
 }

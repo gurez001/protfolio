@@ -21,11 +21,17 @@ export async function fetchData(path: string): Promise<any> {
     // Return the parsed JSON data if the response is successful
     return await response.json();
   } catch (error) {
-    // Log the error and provide a meaningful fallback or error message
+    // Check if the error is from notFound()
+    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+      // Re-throw the NEXT_NOT_FOUND error
+      throw error;
+    }
+
+    // Log other errors
     console.error("Error fetching data:", error);
 
-    // Optionally, you could return a fallback object or value
-    // depending on the requirements of your application.
+    // Throw a generic error for other cases
     throw new Error("An unexpected error occurred while fetching data.");
   }
 }
+
