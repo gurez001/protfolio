@@ -1,7 +1,7 @@
 import React from 'react'
 import { Skeleton } from '../ui/skeleton'
 
-const SkeletonLinesCard = ({ perPage,height=2 }: { perPage: number,height:number }) => {
+const SkeletonLinesCard = ({ perPage, height = 2 }: { perPage: number, height?: number }) => {
     return (
         <div className={`flex flex-col space-y-[8px]`}>
             {[...Array(perPage)].map((_, i) =>
