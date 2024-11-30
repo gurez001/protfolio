@@ -12,7 +12,7 @@ interface SlugPageProps {
 }
 
 export async function generateMetadata({
-  params: { postId, categorie },
+  params: { postId },
 }: SlugPageProps): Promise<Metadata> {
   try {
     const { data } = await fetchData(`post/blog/${postId}`);
@@ -36,8 +36,6 @@ export default async function Blog({
   params: { postId, categorie },
 }: SlugPageProps) {
   const { data } = await fetchData(`post/blog/${postId}`);
-  console.log(categorie.toLowerCase());
-  console.log(data?.categorie[0]?.title?.toLowerCase());
   if (categorie.toLowerCase() !== data.categorie[0].title.toLowerCase()) {
     notFound(); // Trigger 404 if category doesn't match
   }
