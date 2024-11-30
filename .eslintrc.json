@@ -1,12 +1,30 @@
 {
   "extends": [
-    "next", 
-    "next/core-web-vitals", 
+    "next",
+    "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser", // Tells ESLint to use the TypeScript parser
-  "plugins": ["@typescript-eslint"],     // Activates TypeScript-specific linting rules
+  "plugins": ["@typescript-eslint"], // Activates TypeScript-specific linting rules
   "rules": {
-    // Add any custom rules here
+    // Disable the rule that requires React to be in scope
+    // "react/react-in-jsx-scope": "off",
+
+    // Disable prop-types validation (useful if you"re using TypeScript)
+    // "react/prop-types": "off",
+
+    // Allow jsx syntax in .js files
+    // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+
+    // Disable the rule that prevents usage of console statements
+    "no-console": "off"
+
+    // Disable the rule that requires default props
+    // "react/require-default-props": "off",
+
+    // Disable the rule that warns about using array indexes as keys
+    // "react/no-array-index-key": "off"
+
+    // Add more rules here as needed
   }
 }
