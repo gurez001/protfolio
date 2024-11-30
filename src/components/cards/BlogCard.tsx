@@ -5,10 +5,8 @@ import Image from 'next/image'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 const BlogCard = ({ data }: { data: any }) => {
-    const router = useRouter()
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -26,8 +24,9 @@ const BlogCard = ({ data }: { data: any }) => {
             className="grid gap-8 md:grid-cols-3"
         >
             {/* {isLoading ? [...Array(6)].map((_: any, i: number) => <SkeletonPostCard key={i} />) : */}
-            {data?.map((project: any) => (
+            {data?.map((project: any, i: number) => (
                 <motion.div
+                    key={i}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}

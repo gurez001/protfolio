@@ -46,9 +46,9 @@ export default function Index({ cat_id }: { cat_id: any }) {
       <h1 className="text-4xl font-bold mb-8">Our Blog</h1>
       <div className="flex flex-col lg:flex-row gap-8">
         <main className="lg:w-2/3">
-          {isLoading ? [...Array(perPage)].map((_: any, i: number) => <SkeletonBlogCard />) :
+          {isLoading ? [...Array(perPage)].map((_: any, i: number) => <SkeletonBlogCard key={i} />) :
             sortedProjects.length === 0 ? (
-              <div className="text-center">
+              <div className="text-center" >
                 <p className="text-xl mb-4">There are no posts in this category yet.</p>
                 <Link href="/blog" className="text-blue-500 hover:underline">
                   Return to blog page

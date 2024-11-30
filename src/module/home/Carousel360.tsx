@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 export default function Carousel360() {
     const [index, setIndex] = useState(0)
@@ -11,11 +12,11 @@ export default function Carousel360() {
         'https://img.freepik.com/free-psd/landing-page-minimal-style-art-gallery-with-man_23-2148821375.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
         'https://img.freepik.com/free-psd/veterinary-landing-pages-concept_23-2148451973.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
         'https://img.freepik.com/free-psd/let-s-go-hiking-landing-page-screen_23-2148511267.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
-      'https://img.freepik.com/free-psd/restaurant-landing-page-template_23-2148466849.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
+        'https://img.freepik.com/free-psd/restaurant-landing-page-template_23-2148466849.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
         'https://img.freepik.com/free-psd/landing-page-minimal-style-art-gallery-with-man_23-2148821375.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
         'https://img.freepik.com/free-psd/veterinary-landing-pages-concept_23-2148451973.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
         'https://img.freepik.com/free-psd/let-s-go-hiking-landing-page-screen_23-2148511267.jpg?ga=GA1.1.24830064.1731393887&semt=ais_hybrid',
-      
+
     ]
 
     // Controls to animate the carousel rotation
@@ -64,9 +65,10 @@ export default function Carousel360() {
                                 transform: `rotateY(${i * 72}deg) translateZ(300px)`
                             }}
                         >
-                            <img
+                            <Image
                                 src={image}
                                 alt={`carousel-${i}`}
+                                fill
                                 className="w-full h-auto object-cover"
                             />
                         </motion.div>

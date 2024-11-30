@@ -47,8 +47,9 @@ export default function OurProjects() {
           className="grid gap-8 md:grid-cols-3"
         >
           {isLoading ? [...Array(6)].map((_:any,i:number)=><SkeletonPostCard key={i} />) :
-            apiData?.result?.map((project: any) => (
+            apiData?.result?.map((project: any,i:number) => (
               <motion.div
+              key={i}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Clock, HeadsetIcon, Award, FileCheck, Timer, Code } from 'lucide-react'
+import Image from "next/image"
 
 const features = [
   {
@@ -46,9 +47,10 @@ export default function ChooseUs() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
           <div className="relative">
-            <img
+            <Image
               src="/upload/people-creating-social-media-landing-page_52683-38062.jpg"
               alt="Businessman with checklist"
+              fill
               className="w-full max-w-md mx-auto"
             />
           </div>

@@ -32,7 +32,7 @@ export const usePostSidebar = ({
       
       return matchesSearchQuery;
     });
-  }, [projects, searchQuery, selectedCategories]);
+  }, [projects, searchQuery]);
   const filterApiData = useMemo(() => {
     return Array.isArray(filteredProjects) // Safeguard for unexpected non-array
       ? [...filteredProjects].sort((a, b) => {

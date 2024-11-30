@@ -42,8 +42,9 @@ export default function Index() {
             {
               isLoading ? [...Array(perPage)].map((_: any, i: number) => <SkeletonPostCard key={i} />) :
 
-                filterApiData?.map((project: any) => (
+                filterApiData?.map((project: any,i:number) => (
                   <motion.div
+                  key={i}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
