@@ -1,6 +1,5 @@
-import { apiUrl } from "@/state/categorieApi";
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://crm-rjsc.onrender.com/api/api";
 import { notFound } from "next/navigation";
-
 export async function fetchData(path: string): Promise<any> {
   try {
     // Make the API request
@@ -15,14 +14,14 @@ export async function fetchData(path: string): Promise<any> {
 
     // Check for other unsuccessful responses
     if (!response.ok) {
-      throw new Error(`Failed to fetch data: ${response.statusText}`);
+      throw new Error(`Failed to fetch data: ${response.statusText}`); 
     }
 
     // Return the parsed JSON data if the response is successful
     return await response.json();
   } catch (error) {
     // Check if the error is from notFound()
-    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+    if (error instanceof Error && error.message === "NEXT_NOT_FOUND") {
       // Re-throw the NEXT_NOT_FOUND error
       throw error;
     }
@@ -34,4 +33,3 @@ export async function fetchData(path: string): Promise<any> {
     throw new Error("An unexpected error occurred while fetching data.");
   }
 }
-

@@ -26,12 +26,12 @@ export async function generateMetadata({
     };
   } catch (error) {
     // If it's a NEXT_NOT_FOUND error, let it propagate
-    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+    if (error instanceof Error && error.message === "NEXT_NOT_FOUND") {
       throw error;
     }
     // For other errors, return a fallback metadata
     return {
-      title: 'Post Not Found',
+      title: "Post Not Found",
       // ... other fallback metadata
     };
   }
@@ -52,10 +52,10 @@ export default async function Blog({
     );
   } catch (error) {
     // If it's a NEXT_NOT_FOUND error, let it propagate
-    if (error instanceof Error && error.message === 'NEXT_NOT_FOUND') {
+    if (error instanceof Error && error.message === "NEXT_NOT_FOUND") {
       throw error;
     }
     // For other errors, you can render an error state
-    return <div>An error occurred while loading the blog post.</div>;
+    return notFound();
   }
 }
