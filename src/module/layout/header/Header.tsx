@@ -66,6 +66,9 @@ export default function Header() {
             <Image
               src="/assets/logo.png"
               alt="Karnalwebtech"
+              blurDataURL="/assets/placeholder-logo.png"
+              placeholder="blur"
+              priority
               fill
               className="object-contain"
             />
