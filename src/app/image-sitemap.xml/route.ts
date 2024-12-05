@@ -1,11 +1,27 @@
-import { MetadataRoute } from "next";
 import { fetchData } from "@/lib/api";
+export const CACHE_TTL = 3600000; // 1 hour in milliseconds
+export const SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9";
+export const IMAGE_NAMESPACE = "http://www.google.com/schemas/sitemap-image/1.1";
+export const DEFAULT_BASE_URL = "https://thesalesmens.com";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || DEFAULT_BASE_URL;
 
-interface Images {
+interface Image {
   path: string;
   title: string;
   caption: string;
+  displayedpath: string;
+  updatedAt: string;
+  description?: string;
+  license?: string;
 }
+
+interface GroupedImages {
+  [key: string]: {
+    images: Image[];
+    lastmod: string;
+  };
+}
+
 type ChangeFrequency =
   | "always"
   | "hourly"
@@ -15,41 +31,53 @@ type ChangeFrequency =
   | "yearly"
   | "never";
 
-// Implement a simple cache
-const cache: { [key: string]: { data: any; timestamp: number } } = {};
-const CACHE_TTL = 3600000; // 1 hour in milliseconds
-
-async function cachedFetchData(endpoint: string) {
-  const now = Date.now();
-  if (cache[endpoint] && now - cache[endpoint].timestamp < CACHE_TTL) {
-    return cache[endpoint].data;
-  }
-
-  try {
-    const data = await fetchData(endpoint);
-    cache[endpoint] = { data, timestamp: data?.updatedAt };
-    return data;
-  } catch (error) {
-    console.error(`Error fetching ${endpoint}:`, error);
-    return null;
-  }
+interface CacheEntry {
+  data: any;
+  timestamp: number;
 }
 
-const createSitemapEntry = (
-  url: string,
-  title:string,
-  caption: string,
-  changeFrequency: ChangeFrequency,
-  priority: number
-): any => ({
-  url: url.replace(/\/+$/, ""),
-  title,
-  caption,
-  changeFrequency,
-  priority,
-});
+const cache: Record<string, CacheEntry> = {};
 
-const revalidate = 3600; // Revalidate every hour
+// Memoize groupedImages to avoid recalculating the same data
+const groupedImagesCache: Record<string, GroupedImages> = {};
+
+function normalizeImageUrl(url: string): string {
+  if (url.includes('firebasestorage.googleapis.com')) {
+    const firebaseUrl = url.match(/https:\/\/firebasestorage\.googleapis\.com.*/);
+    return firebaseUrl ? firebaseUrl[0] : url;
+  }
+  return url;
+}
+
+function groupImagesByUrl(images: Image[]): GroupedImages {
+  const cacheKey = images.map(img => img.displayedpath).join(',');
+  if (groupedImagesCache[cacheKey]) {
+    return groupedImagesCache[cacheKey];
+  }
+
+  const grouped = images.reduce((acc: GroupedImages, image) => {
+    const key = `${baseUrl}/${image.displayedpath.replace(/^\/+/, '')}`;
+    
+    if (!acc[key]) {
+      acc[key] = { images: [], lastmod: image.updatedAt };
+    }
+
+    acc[key].images.push(image);
+    
+    // Only update if the current image has a newer date
+    const currentDate = new Date(image.updatedAt);
+    const lastmodDate = new Date(acc[key].lastmod);
+    if (currentDate > lastmodDate) {
+      acc[key].lastmod = image.updatedAt;
+    }
+
+    return acc;
+  }, {});
+
+  groupedImagesCache[cacheKey] = grouped;
+  return grouped;
+}
+
 const escapeXml = (unsafe: string): string =>
   unsafe
     .replace(/&/g, "&amp;")
@@ -58,54 +86,48 @@ const escapeXml = (unsafe: string): string =>
     .replace(/'/g, "&apos;")
     .replace(/"/g, "&quot;");
 
-async function image_sitemap_data(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://thesalesmens.com";
+async function generateImageSitemap(): Promise<string> {
+  const imageData = await fetchData("image/image-url") as Image[];
+  const groupedImages = groupImagesByUrl(imageData);
 
-  const [imageData] = await Promise.all([cachedFetchData("image/image-url")]);
-  const imageSitemap =
-    (imageData as Images[])?.map((item) => {
-      const url = `${baseUrl}/${item.path}`;
-      const title = item.title;
-      const caption = item.caption ;
-      return createSitemapEntry(url, title, caption, "weekly", 0.7);
-    }) || [];
+  const sitemapEntries = Object.entries(groupedImages).map(([url, data]) => {
+    const imageEntries = data.images.map(image => `
+      <image:image>
+        <image:loc>${escapeXml(normalizeImageUrl(image.path))}</image:loc>
+        <image:title>${escapeXml(image.title || "Boxify Pack")}</image:title>
+        <image:caption>${escapeXml(image.caption || "Boxify Pack")}</image:caption>
+      </image:image>
+    `).join('');
 
-  return [...imageSitemap];
-}
-export async function GET() {
-  // This function would typically fetch image data from your database or CMS
+    return `
+      <url>
+        <loc>${escapeXml(url)}</loc>
+        <lastmod>${data.lastmod}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        ${imageEntries}
+      </url>
+    `;
+  }).join('');
 
-  const images: any = await image_sitemap_data();
-
-  // Generate the XML
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-            xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-      ${images
-        .map(
-          (item: any) => `
-         <url>
-          <loc>${escapeXml(item.url)}</loc>
-           <image:image>
-              <image:loc>${escapeXml(item.url)}</image:loc>
-              <image:title>${item.title || "Karnal web tech"}</image:title>
-               <image:caption>${
-                 item?.description || "Karnal web tech"
-               }</image:caption>
-                 ${item?.license ? `<image:license>${item.license}</image:license>` : ""}
-            </image:image>
-        </url>
-        `
-        )
-        .join("")}
+  return `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="${SITEMAP_NAMESPACE}" xmlns:image="${IMAGE_NAMESPACE}">
+      ${sitemapEntries}
     </urlset>`;
+}
 
-  return new Response(sitemap, {
-    status: 200,
-    headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
-    },
-  });
+export async function GET() {
+  try {
+    const sitemap = await generateImageSitemap();
+    return new Response(sitemap, {
+      status: 200,
+      headers: {
+        "Content-Type": "application/xml",
+        "Cache-Control": "public, max-age=3600, s-maxage=3600",
+      },
+    });
+  } catch (error) {
+    console.error("Error generating sitemap:", error);
+    return new Response("Error generating sitemap", { status: 500 });
+  }
 }
