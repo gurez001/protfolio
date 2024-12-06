@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 export default function ContsctUs() {
     const fadeIn = {
@@ -49,15 +50,15 @@ export default function ContsctUs() {
                         <div className="space-y-4">
                             <div className="flex items-center space-x-3 text-muted-foreground text-sm">
                                 <Mail className="h-5 w-5 text-black" />
-                                <span>info@yourdomain.com</span>
+                                <span>info@karnalwebtech.com</span>
                             </div>
                             <div className="flex items-center space-x-3 text-muted-foreground text-sm">
                                 <MapPin className="h-5 w-5 text-black" />
-                                <span>JI.KH Samanhudi Metro Atom Plaza Bl AK5 (Tl, DKI Jakarta</span>
+                                <span>Sector-6, Karnal, Haryana 132001, India</span>
                             </div>
                             <div className="flex items-center space-x-3 text-muted-foreground text-sm">
                                 <Phone className="h-5 w-5 text-black" />
-                                <span>+62 (0) 000 0000 00</span>
+                                <span><Link href={"tel:+918816041566"}>+91 88160 41566</Link></span>
                             </div>
                         </div>
                     </motion.div>

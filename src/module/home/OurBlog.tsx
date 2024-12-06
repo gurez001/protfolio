@@ -42,8 +42,8 @@ export default function OurBlog() {
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4 md:text-4xl lg:text-5xl">
             Our Blogs
           </h2>
-          <p className="text-sm text-gray-600 max-w-2xl mx-auto">
-            Explore our Blog of innovative solutions across various industries and technologies.
+          <p className="text-muted-foreground text-sm max-w-[100%] lg:max-w-[70%] mx-auto">
+            Dive into expertly crafted articles on diverse topics, from technology advancements and entertainment updates to industry trends. Our blogs are designed to inform, inspire, and keep you ahead in a rapidly evolving digital landscape. Stay updated with fresh perspectives and in-depth analysis—your gateway to staying informed and inspired!
           </p>
         </motion.div>
 
@@ -54,9 +54,9 @@ export default function OurBlog() {
           className="grid gap-8  md:grid-cols-3"
         >
           {isLoading ? [...Array(6)].map((_: any, i: number) => <SkeletonPostCard key={i} />) :
-            apiData?.result?.map((project: any,i:number) => (
+            apiData?.result?.map((project: any, i: number) => (
               <motion.div
-              key={i}
+                key={i}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -85,7 +85,7 @@ export default function OurBlog() {
                       transition={{ delay: 0.2, duration: 0.5 }}
                     >
                       <Link href={`/${project.categorie[0]?.title}/${project?.slug}`}>
-                        <CardTitle className="text-xl  font-bold">{project.title}</CardTitle>
+                        <CardTitle className="text-xl font-bold line-clamp-2">{project.title}</CardTitle>
                       </Link>
                     </motion.div>
                   </CardHeader>
@@ -95,7 +95,7 @@ export default function OurBlog() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-muted-foreground text-sm line-clamp-3">
                         {project.description}
                       </p>
                     </motion.div>
