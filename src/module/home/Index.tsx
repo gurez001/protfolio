@@ -6,7 +6,7 @@ import TechnologyStack from './TechnologyStack'
 import ChooseUs from './ChooseUs'
 import OurProjects from './OurProjects'
 import OurBlog from './OurBlog'
-import ContactUs from '@/app/contact-us/page'
+import ContsctUs from './ContsctUs'
 
 export default function Home() {
   return (
@@ -34,7 +34,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ContactUs />
+      <ContsctUs />
     </main>
   )
 }

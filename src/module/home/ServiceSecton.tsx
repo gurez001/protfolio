@@ -130,7 +130,7 @@ export default function ServiceSection() {
           <Button
             onClick={handleContactClick}
             size="lg"
-            className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90"
+            className="bg-black text-primary-foreground hover:text-black hover:bg-gray-100"
           >
             LET&apos;S TALK
           </Button>

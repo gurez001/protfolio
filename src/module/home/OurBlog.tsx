@@ -68,6 +68,7 @@ export default function OurBlog() {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
+                   
                   >
                     <Link href={`/${project.categorie[0]?.title}/${project?.slug}`}>
                       <Image
@@ -78,7 +79,7 @@ export default function OurBlog() {
                         className="w-full h-48 object-cover"
                       /></Link>
                   </motion.div>
-                  <CardHeader>
+                  <CardHeader className='p-4 pb-2'>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -89,7 +90,7 @@ export default function OurBlog() {
                       </Link>
                     </motion.div>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className='px-4 pb-2'>
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -100,7 +101,7 @@ export default function OurBlog() {
                       </p>
                     </motion.div>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className='px-4'>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -113,7 +114,7 @@ export default function OurBlog() {
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Badge variant="secondary">{tech?.title}</Badge>
+                          <Badge variant="outline">{tech?.title}</Badge>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -129,7 +130,7 @@ export default function OurBlog() {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-center mt-12"
         >
-          <Button size="lg" onClick={() => router.push('/blog')} className="bg-black text-primary-foreground hover:text-black hover:bg-primary/90">
+          <Button size="lg" onClick={() => router.push('/blog')} className="bg-black text-primary-foreground hover:text-black hover:bg-gray-100">
             View All Blog
           </Button>
         </motion.div>

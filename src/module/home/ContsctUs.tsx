@@ -14,10 +14,10 @@ export default function ContsctUs() {
     }
 
     const socialLinks = [
-        { icon: Facebook, href: '#', label: 'Facebook' },
-        { icon: Instagram, href: '#', label: 'Instagram' },
-        { icon: Linkedin, href: '#', label: 'LinkedIn' },
-        { icon: Twitter, href: '#', label: 'Twitter' }
+        // { icon: Facebook, href: '#', label: 'Facebook' },
+        { icon: Instagram, href: 'https://www.instagram.com/karnalwebtech', label: 'Instagram' },
+        { icon: Linkedin, href: 'https://www.linkedin.com/in/karnalwebtech', label: 'LinkedIn' },
+        // { icon: Twitter, href: '#', label: 'Twitter' }
     ]
 
     return (
@@ -114,6 +114,7 @@ export default function ContsctUs() {
                             key={social.label}
                             href={social.href}
                             variants={fadeIn}
+                            target="__blank"
                             whileHover={{ scale: 1.1 }}
                             className="rounded-full bg-black p-3 text-gray-300 transition-colors hover:bg-white/10 hover:text-black"
                             aria-label={social.label}
