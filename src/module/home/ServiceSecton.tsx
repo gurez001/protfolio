@@ -41,22 +41,22 @@ export default function ServiceSecton() {
       description: 'We analyse your business concerns and offer solutions to meet your needs.'
     },
     {
-      icon: "user-experience_.png",
+      icon: "rafic.jpeg",
       title: 'Graphic Design',
       description: 'Eye-catching visuals that communicate your brand message effectively and leave a lasting impression.'
     },
     {
-      icon: "user-experience_.png",
+      icon: "socialmedia.jpeg",
       title: 'Social Media Handling',
       description: 'Boost your online presence with our expert social media management and engagement strategies.'
     },
     {
-      icon: "user-experience_.png",
+      icon: "marketing.jpeg",
       title: 'Digital Marketing',
       description: 'Reach your target audience and grow your business with our comprehensive digital marketing solutions.'
     },
     {
-      icon: "user-experience_.png",
+      icon: "conetnt.jpeg",
       title: 'Content Writing',
       description: 'Compelling, SEO-friendly content that resonates with your audience and drives engagement.'
     }
