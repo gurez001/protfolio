@@ -5,57 +5,58 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { LayoutDashboard, Smartphone, Code, Settings, ThumbsUp, LineChart, Palette, Share2, Megaphone, PenTool } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function ServiceSecton() {
   const router = useRouter()
   const services = [
     {
-      icon: LayoutDashboard,
+      icon: "user-experience_.png",
       title: 'UI / UX Design',
       description: 'Your design, your way! We customize our services to suit your tastes to the tee'
     },
     {
-      icon: Smartphone,
+      icon: "mobile.png",
       title: 'Web & Mobile App Development',
       description: 'Multiple requirements? We\'ll support all your needs in an organized manner.'
     },
     {
-      icon: Code,
+      icon: "api_.png",
       title: 'API Development',
       description: 'Worried about your application? Don\'t fret! Our dedicated developers are here to get the job done.'
     },
     {
-      icon: Settings,
+      icon: "maintenance.png",
       title: 'Maintenance & Upgrades',
       description: 'Project Complete? We\'re still here. You can contact us for post-service requirements at any time.'
     },
     {
-      icon: ThumbsUp,
+      icon: "quality-management.png",
       title: 'Quality Assurance',
       description: 'We take pride in our work. We work till your project is even better than you expect!'
     },
     {
-      icon: LineChart,
+      icon: "analysis.png",
       title: 'Business Analysis',
       description: 'We analyse your business concerns and offer solutions to meet your needs.'
     },
     {
-      icon: Palette,
+      icon: "user-experience_.png",
       title: 'Graphic Design',
       description: 'Eye-catching visuals that communicate your brand message effectively and leave a lasting impression.'
     },
     {
-      icon: Share2,
+      icon: "user-experience_.png",
       title: 'Social Media Handling',
       description: 'Boost your online presence with our expert social media management and engagement strategies.'
     },
     {
-      icon: Megaphone,
+      icon: "user-experience_.png",
       title: 'Digital Marketing',
       description: 'Reach your target audience and grow your business with our comprehensive digital marketing solutions.'
     },
     {
-      icon: PenTool,
+      icon: "user-experience_.png",
       title: 'Content Writing',
       description: 'Compelling, SEO-friendly content that resonates with your audience and drives engagement.'
     }
@@ -109,9 +110,19 @@ export default function ServiceSecton() {
             <motion.div key={index} variants={cardVariants}>
               <Card className="h-full transition-shadow hover:shadow-lg bg-gray-100">
                 <CardContent className="p-6">
-                  <div className="mb-4 flex items-center gap-[4px]">
-                    <service.icon className="text-lg" />
+                  <div className="mb-2 flex items-start gap-[4px]">
+                    <div className="h-[40px] max-w-[100px] w-[40px] relative">
+                      <Image
+                        src={`/assets/${service.icon}`}
+                        alt="Businessman with checklist"
+                        fill
+                        priority
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className='w-[95%]'>
                     <h3 className="text-lg font-semibold">{service.title}</h3>
+                    </div>
                   </div>
                   <p className="text-muted-foreground text-sm">{service.description}</p>
                 </CardContent>
