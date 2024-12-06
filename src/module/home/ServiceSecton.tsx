@@ -13,52 +13,52 @@ export default function ServiceSecton() {
     {
       icon: "user-experience_.png",
       title: 'UI / UX Design',
-      description: 'Your design, your way! We customize our services to suit your tastes to the tee'
+      description: 'Craft user-friendly, visually stunning designs that resonate with your brand identity and captivate your audience.'
     },
     {
       icon: "mobile.png",
       title: 'Web & Mobile App Development',
-      description: 'Multiple requirements? We\'ll support all your needs in an organized manner.'
+      description: 'From concept to deployment, we create robust and scalable applications that meet your unique requirements.'
     },
     {
       icon: "api_.png",
       title: 'API Development',
-      description: 'Worried about your application? Don\'t fret! Our dedicated developers are here to get the job done.'
+      description: 'Seamlessly integrate powerful APIs to enhance your application\'s functionality and performance.'
     },
     {
       icon: "maintenance.png",
       title: 'Maintenance & Upgrades',
-      description: 'Project Complete? We\'re still here. You can contact us for post-service requirements at any time.'
+      description: 'Stay ahead of the curve with regular updates and reliable post-project support for continuous improvement.'
     },
     {
       icon: "quality-management.png",
       title: 'Quality Assurance',
-      description: 'We take pride in our work. We work till your project is even better than you expect!'
+      description: 'Delivering excellence is our motto. We rigorously test to ensure your projects surpass expectations.'
     },
     {
       icon: "analysis.png",
       title: 'Business Analysis',
-      description: 'We analyse your business concerns and offer solutions to meet your needs.'
+      description: 'We dive deep into your challenges, offering insights and strategies to empower your decision-making.'
     },
     {
       icon: "rafic.jpeg",
       title: 'Graphic Design',
-      description: 'Eye-catching visuals that communicate your brand message effectively and leave a lasting impression.'
+      description: 'Bring your brand to life with compelling visuals and creative designs that leave a lasting impression.'
     },
     {
       icon: "socialmedia.jpeg",
       title: 'Social Media Handling',
-      description: 'Boost your online presence with our expert social media management and engagement strategies.'
+      description: 'Elevate your online presence with expert social media management, engagement strategies, and growth tactics.'
     },
     {
       icon: "marketing.jpeg",
       title: 'Digital Marketing',
-      description: 'Reach your target audience and grow your business with our comprehensive digital marketing solutions.'
+      description: 'Achieve your business goals with our comprehensive digital marketing services, including targeted campaigns and analytics-driven strategies.'
     },
     {
       icon: "conetnt.jpeg",
       title: 'Content Writing',
-      description: 'Compelling, SEO-friendly content that resonates with your audience and drives engagement.'
+      description: 'Enhance your digital footprint with engaging, SEO-optimized content that drives traffic and connects with your audience.'
     }
   ]
 
@@ -95,7 +95,7 @@ export default function ServiceSecton() {
             What we do best
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Seeking the best for your website needs? Look no further! We offer you utmost satisfaction when it comes to best-in-class web technology services and solutions.
+          At KarnalWebTech, we excel in delivering top-notch services tailored to meet your business needs. Our diverse expertise ensures that we provide end-to-end solutions for your digital and creative challenges. Here's what we do best:
           </p>
         </div>
 

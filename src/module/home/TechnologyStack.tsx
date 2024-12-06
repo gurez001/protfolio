@@ -8,24 +8,24 @@ import Image from 'next/image'
 
 export default function TechnologyStack() {
     const technologies = [
-        { name: 'HTML', icon: "html.png", description: 'The standard markup language for Web pages' },
-        { name: 'CSS', icon: "css.png", description: 'Styling language used for describing the presentation of a document' },
-        { name: 'WordPress', icon: "wordpress.png", description: 'Open-source content management system' },
-        { name: 'Squarespace', icon: "squarespace.png", description: 'Website builder and hosting platform' },
-        { name: 'Wix', icon: "wix.png", description: 'Website builder and hosting platform' },
-        { name: 'JavaScript', icon: "javascript.png", description: 'High-level, interpreted programming language' },
-        { name: 'React', icon: "react.png", description: 'A JavaScript library for building user interfaces' },
-        { name: 'React Native', icon: "react native.png", description: 'Framework for building native apps using React' },
-        { name: 'Next.js', icon: "nextjs-icon.png", description: 'The React Framework for Production' },
-        { name: 'TypeScript', icon: "ts.png", description: 'Typed JavaScript at Any Scale' },
-        { name: 'Node.js', icon: "node-js-black-icon.png", description: 'JavaScript runtime built on Chrome\'s V8 JavaScript engine' },
-        { name: 'Material UI', icon: "materalui.png", description: 'React components for faster and easier web development' },
-        { name: 'MongoDB', icon: "db.png", description: 'Source-available cross-platform document-oriented database' },
-        { name: 'shadcn/ui', icon: "shadcen.png", description: 'Beautifully designed components built with Radix UI and Tailwind CSS' },
-        { name: 'Tailwind CSS', icon: "Tailwind CSS.webp", description: 'A utility-first CSS framework for rapid UI development' },
+        { name: 'HTML', icon: "html.png", description: 'The foundation of every web page, enabling the creation of well-structured and accessible content.' },
+        { name: 'CSS', icon: "css.png", description: 'Crafting visually appealing and responsive designs to enhance user experience across devices.' },
+        { name: 'WordPress', icon: "wordpress.png", description: 'Powering dynamic websites with the world\'s leading content management system.' },
+        { name: 'Squarespace', icon: "squarespace.png", description: 'Offering seamless website creation and hosting with easy-to-use tools for creative professionals.' },
+        { name: 'Wix', icon: "wix.png", description: 'Simplifying web development with a flexible platform for building stunning websites.' },
+        { name: 'JavaScript', icon: "javascript.png", description: 'A powerful programming language driving interactivity and functionality in web applications.' },
+        { name: 'React', icon: "react.png", description: 'Building dynamic and reusable user interface components for web and mobile applications.' },
+        { name: 'React Native', icon: "react native.png", description: 'Crafting cross-platform mobile applications with high performance and a native feel.' },
+        { name: 'Next.js', icon: "nextjs-icon.png", description: 'Empowering server-side rendering and optimized performance for React applications.' },
+        { name: 'TypeScript', icon: "ts.png", description: 'Enhancing JavaScript with strong typing for large-scale, maintainable applications.' },
+        { name: 'Node.js', icon: "node-js-black-icon.png", description: 'Enabling scalable and high-performance server-side applications with a runtime built on V8' },
+        { name: 'Material UI', icon: "materalui.png", description: 'Simplifying the development of aesthetically pleasing and accessible user interfaces.' },
+        { name: 'MongoDB', icon: "db.png", description: 'A document-oriented database ensuring flexibility and scalability for your data needs.' },
+        { name: 'shadcn/ui', icon: "shadcen.png", description: 'Designing stunning components with Radix UI and Tailwind CSS integration.' },
+        { name: 'Tailwind CSS', icon: "Tailwind CSS.webp", description: 'Rapidly building custom designs with a utility-first CSS framework.' },
         { name: 'Coral', icon: "coral.png", description: 'Digital design tool for creating graphics and illustrations' },
-        { name: 'Canva', icon: "canva.png", description: 'Online design and publishing tool' },
-        { name: 'Adobe Creative Suite', icon: "adobe.png", description: 'Collection of creative software for design, video, and web development' },
+        { name: 'Canva', icon: "canva.png", description: 'Creating professional-grade graphics and visuals for your branding and marketing needs.' },
+        { name: 'Adobe Creative Suite', icon: "adobe.png", description: 'Delivering comprehensive tools for design, video production, and web development.' },
     ]
     const containerVariants = {
         hidden: {},
@@ -65,7 +65,7 @@ export default function TechnologyStack() {
                         Our Technology Stack
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Leveraging cutting-edge technologies to build robust and scalable applications
+                    At KarnalWebTech, we leverage a versatile and modern technology stack to deliver innovative, robust, and scalable solutions tailored to your needs. Here's an overview of the tools and frameworks we use:
                     </p>
                 </motion.div>
 
