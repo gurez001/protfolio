@@ -11,7 +11,8 @@ const StackCard = ({ item }: { item: any }) => {
                         <Image
                             src={`/assets/${item.icon}`}
                             alt="Businessman with checklist"
-                            fill
+                            width={100}
+                            height={100}
                             priority
                             className="object-contain"
                         />

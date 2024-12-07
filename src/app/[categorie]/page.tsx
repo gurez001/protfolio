@@ -54,6 +54,19 @@ interface SlugPageProps {
   };
 }
 
+// Corrected function name
+export async function generateStaticParams() {
+  const { data } = await fetchData(`categorie`);
+  const result = data?.result || [];
+
+  // Ensure result is an array before mapping
+  if (!Array.isArray(result)) {
+    throw new Error("Invalid result format");
+  }
+
+  // Map over result to extract slugs
+  return result.map(({ slug }) => ({ categorie: slug })).slice(0, 30); // Include keys for dynamic routes
+}
 export async function generateMetadata({
   params: { categorie },
 }: SlugPageProps): Promise<Metadata> {
