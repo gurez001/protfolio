@@ -1,13 +1,12 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
 import { useGetAllPortfolioQuery } from '@/state/portfolioApi'
 import PortfolioCard from '@/components/cards/PortfolioCard'
 import { useRouter } from 'next/navigation'
 import SkeletonPostCard from '@/components/skeleton/skeleton-post-card'
+import { Btn_n_Navigation } from '@/components/common/helpers/btn-n-navigation'
 
 export default function OurProjects() {
-  const router = useRouter();
   const { data, error, isLoading } = useGetAllPortfolioQuery({
     rowsPerPage: 6,
     page: 1,
@@ -68,9 +67,7 @@ export default function OurProjects() {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-center mt-12"
         >
-          <Button size="lg" onClick={() => router.push('/projects')} className="bg-black text-primary-foreground hover:text-black hover:bg-gray-100">
-            View All Projects
-          </Button>
+          <Btn_n_Navigation title="View All Projects" link='projects'/>
         </motion.div>
       </div>
     </section>

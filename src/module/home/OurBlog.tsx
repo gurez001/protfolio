@@ -1,7 +1,5 @@
 'use client'
-
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -9,6 +7,7 @@ import { useGetAllPostQuery } from '@/state/postApi'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import SkeletonPostCard from '@/components/skeleton/skeleton-post-card'
+import { OptimizedImage } from '@/components/OptimizedImage'
 
 export default function OurBlog() {
   const router = useRouter()
@@ -21,9 +20,6 @@ export default function OurBlog() {
       }
     }
   }
-
-
-
   const { data, error, isLoading } = useGetAllPostQuery({
     rowsPerPage: 6,
     page: 1,
@@ -71,7 +67,7 @@ export default function OurBlog() {
                    
                   >
                     <Link href={`/${project.categorie[0]?.title}/${project?.slug}`}>
-                      <Image
+                      <OptimizedImage
                         src={project?.feature_image?.path}
                         alt={project?.feature_image?.altText || project?.title}
                         width={600}

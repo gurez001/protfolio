@@ -15,7 +15,7 @@ export default function InfintySliderTb() {
         "/assets/karnalwebtech seo (2).webp",
         "/assets/karnalwebtech seo.webp",
         "/assets/karnalwebtech website desgine.webp",
-        "/assets/karnalwebtech website.webp",
+        "/assets/background.webp",
     ];
     React.useEffect(() => {
         const timer = setInterval(() => {
@@ -40,14 +40,14 @@ export default function InfintySliderTb() {
                     <Card className="h-full w-full border-0">
                         <CardContent className={cn(
                             "flex h-full items-center justify-center",
-                            "text-4xl font-bold"
-                        )}>
+                            "text-4xl font-bold")}>
                             <Image
                                 src={images[currentIndex]}
                                 alt={`Slide ${currentIndex + 1}`}
                                 layout="fill" // Makes image take full width and height of parent
                                 objectFit="cover" // Ensures the image covers the container
                                 className="rounded-lg"
+                                quality={85}
                                 priority // Optional: load the first image eagerly
                             />
                         </CardContent>

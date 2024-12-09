@@ -108,15 +108,19 @@ p {
   }
 }
 
-@keyframes backgroundMove {
+@keyframes backgroundAnimation {
   0% {
-    background-position: 0% 0%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(1deg);
   }
   100% {
-    background-position: 100% 100%;
+    transform: scale(1) rotate(0deg);
   }
 }
 
 .animate-background {
-  animation: backgroundMove 30s linear infinite alternate;
+  animation: backgroundAnimation 20s ease-in-out infinite;
 }
+

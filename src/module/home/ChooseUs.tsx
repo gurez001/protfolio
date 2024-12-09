@@ -74,6 +74,7 @@ export default function ChooseUs() {
               src="/assets/karnalwebtechfaq.png"
               alt="Businessman with checklist"
               fill
+              quality={85}
               priority
               className="object-contain"
             />
