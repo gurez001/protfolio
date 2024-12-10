@@ -47,7 +47,6 @@ export default function InfintySliderTb() {
                                 layout="fill" // Makes image take full width and height of parent
                                 objectFit="cover" // Ensures the image covers the container
                                 className="rounded-lg"
-                                quality={85}
                                 priority // Optional: load the first image eagerly
                             />
                         </CardContent>

@@ -5,8 +5,15 @@ const nextConfig = {
   },
   reactStrictMode: true, // Helps in identifying React-related issues
   swcMinify: true,       // Enables faster minification with SWC
-  experimental: {
-    optimizeCss: true,    // Optimizes CSS (experimental)
+  async headers() {
+    return [
+      {
+        source: '/(.*).js',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+    ];
   },
   images: {
     remotePatterns: [

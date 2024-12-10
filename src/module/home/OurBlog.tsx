@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -66,7 +67,7 @@ export default function OurBlog() {
                     transition={{ duration: 0.3 }}
                    
                   >
-                    <Link href={`/${project.categorie[0]?.title}/${project?.slug}`}>
+                    <Link href={`/${project.categorie[0]?.title}/${project?.slug}`} prefetch={true}>
                       <OptimizedImage
                         src={project?.feature_image?.path}
                         alt={project?.feature_image?.altText || project?.title}
@@ -81,7 +82,7 @@ export default function OurBlog() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2, duration: 0.5 }}
                     >
-                      <Link href={`/${project.categorie[0]?.title}/${project?.slug}`}>
+                      <Link href={`/${project.categorie[0]?.title}/${project?.slug}`} prefetch={true}>
                         <CardTitle className="text-xl font-bold line-clamp-2">{project.title}</CardTitle>
                       </Link>
                     </motion.div>

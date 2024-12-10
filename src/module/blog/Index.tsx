@@ -16,6 +16,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useGetAllPostQuery } from "@/state/postApi";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useFilteredAndSorted from "@/hook/useFilteredAndSorted";
 import { BlogFooter } from "../layout/footer/blog-footer";
@@ -60,7 +61,7 @@ export default function Index({ cat_id }: { cat_id?: any }) {
               <p className="text-xl mb-4">
                 There are no posts in this category yet.
               </p>
-              <Link href="/blog" className="text-blue-500 hover:underline">
+              <Link href="/blog" prefetch={true} className="text-blue-500 hover:underline">
                 Return to blog page
               </Link>
             </div>
@@ -72,7 +73,7 @@ export default function Index({ cat_id }: { cat_id?: any }) {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Link href={`/${post?.categorie[0]?.slug}/${post?.slug}`}>
+                    <Link href={`/${post?.categorie[0]?.slug}/${post?.slug}`} prefetch={true}>
                       <OptimizedImage
                         src={post?.feature_image?.path}
                         alt={post?.feature_image?.altText || post?.title}

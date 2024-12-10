@@ -1,5 +1,4 @@
 import Index from "@/module/home/Index";
-import { base_url } from "@/paths";
 import { JsonLd } from "react-schemaorg";
 import { WebPage, BreadcrumbList } from "schema-dts";
 
@@ -50,7 +49,7 @@ export default function Home() {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: base_url,
+          item: "https://karnalwebtech-xi.vercel.app",
         },
         // Add more breadcrumb items as needed
       ],

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Montserrat_Alternates } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css"; // Global CSS file
 import { Toaster } from "react-hot-toast";
 import Header from "@/module/layout/header/Header";
@@ -9,6 +9,7 @@ import Footer from "@/module/layout/footer/Footer";
 import type { Metadata, Viewport } from "next";
 import StoreProvider from "@/store";
 import { base_url } from "@/paths";
+import { WebVitals } from "@/components/web-vitals";
 
 // Font configuration (optional)
 const montserrat_Alternates = Montserrat_Alternates({
@@ -19,10 +20,9 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
 };
-
 export const metadata: Metadata = {
   metadataBase: new URL(base_url),
   title: {
@@ -90,10 +90,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  
   return (
     <html lang="en">
       <body className={montserrat_Alternates.className}>
+        <WebVitals />
         <StoreProvider>
           <Header />
           {children}

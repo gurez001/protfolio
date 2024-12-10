@@ -52,7 +52,7 @@ export default function Header() {
             </nav>
           </SheetContent>
         </Sheet>
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Link href="/" prefetch={true} className="mr-6 flex items-center space-x-2">
           <div className="h-[70px] w-[190px] mt-2 pb-2 relative">
             <Image
               src="/assets/logo.webp"
@@ -67,12 +67,12 @@ export default function Header() {
         </Link>
 
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <Search_section/>
+          <Search_section />
           <nav className="mx-6 flex items-center space-x-4 lg:space-x-6 hidden md:block">
             {navItems.map((item) => (
               <Link
                 key={item.path}
-                href={item.path}
+                href={item.path} prefetch={true}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
                   pathname === item.path
