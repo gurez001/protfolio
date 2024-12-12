@@ -25,9 +25,9 @@ export function ProjectStatusCard({
                 <div className="flex justify-between items-start">
                     <div>
                         <CardTitle className="text-xl">Project Overview</CardTitle>
-                        <CardDescription className="text-sm">Current status of all projects</CardDescription>
+                        <CardDescription className="text-[15px]">Current status of all projects</CardDescription>
                     </div>
-                    <Badge variant="secondary" className="text-sm">
+                    <Badge variant="secondary" className="text-[15px]">
                         Updated: {new Date().toLocaleDateString()}
                     </Badge>
                 </div>

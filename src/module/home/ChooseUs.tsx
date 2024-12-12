@@ -70,12 +70,12 @@ export default function ChooseUs() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-8 items-center mb-8 lg:mb-12">
           <div className="max-w-[400px] m-auto w-full relative">
-          <h2 className="text-4xl lg:text-7xl font-bold">
+          <h2 className="text-4xl lg:text-7xl text-start lg:text-center font-bold">
               <span className="text-gray-500">Why</span> Choose Us <span className="text-gray-500">?</span>
             </h2>
           </div>
           <div>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-700 text-base">
               KarnalWebTech combines the brilliance of human intellect with cutting-edge technology to deliver tailored mobility solutions across diverse business domains. Our commitment to excellence is demonstrated through:
             </p>
           </div>

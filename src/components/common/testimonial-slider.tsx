@@ -93,16 +93,16 @@ export default function TestimonialSlider() {
                         <AvatarImage src={testimonials[currentIndex].avatar} alt={testimonials[currentIndex].name} />
                         <AvatarFallback>{testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                     </Avatar>
-                    <div className="flex mb-[5px]" aria-label={`Rating: ${testimonials[currentIndex].rating} out of 5 stars`}>
+                    <div className="flex mb-sm" aria-label={`Rating: ${testimonials[currentIndex].rating} out of 5 stars`}>
                         {renderStars(testimonials[currentIndex].rating)}
                     </div>
-                    <span className="text-sm font-medium text-primary mb-2">{testimonials[currentIndex].projectType}</span>
-                    <blockquote className="text-sm mb-4">
+                    <span className="text-[16px] font-medium text-primary mb-2">{testimonials[currentIndex].projectType}</span>
+                    <blockquote className="text-[16px] mb-4">
                         "{testimonials[currentIndex].content}"
                     </blockquote>
                     <cite className="not-italic">
                         <span className="font-semibold">{testimonials[currentIndex].name}</span>
-                        {/* <span className="block text-sm text-muted-foreground">{testimonials[currentIndex].company}</span> */}
+                        {/* <span className="block text-[16px] text-muted-foreground">{testimonials[currentIndex].company}</span> */}
                     </cite>
                 </div>
             </CardContent>

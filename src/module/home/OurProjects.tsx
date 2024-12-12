@@ -35,7 +35,7 @@ export default function OurProjects() {
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4 md:text-4xl lg:text-5xl">
             Our Projects
           </h2>
-          <p className="text-muted-foreground text-sm max-w-[100%] lg:max-w-[70%] mx-auto">
+          <p className="text-muted-foreground text-base max-w-[100%] lg:max-w-[90%] mx-auto">
             At KarnalWebTech, our projects showcase a perfect blend of innovation, expertise, and commitment. From custom software solutions to cutting-edge mobile and web applications, we deliver projects that drive business success. Each project reflects our dedication to quality, timely delivery, and client satisfaction.
             Let us turn your vision into reality with tailored solutions that make an impact!
           </p>
