@@ -31,7 +31,7 @@ export default function HeroSection() {
           </div>
             <div className="p-8 flex justify-between items-start h-full relative bg-black/70">
               <div className="space-y-6">
-                <h1 className="text-5xl font-semibold text-gray-100">
+                <h1 className="text-4xl lg:text-5xl font-semibold text-gray-100">
                 Your Business
            <br />
            Deserves to Shine

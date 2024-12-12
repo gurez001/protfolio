@@ -45,7 +45,7 @@ export default function OurProjects() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid gap-8 md:grid-cols-3"
+          className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
         >
           {isLoading ? [...Array(6)].map((_: any, i: number) => <SkeletonPostCard key={i} />) :
             apiData?.result?.map((project: any, i: number) => (
