@@ -18,7 +18,7 @@ export default function ContsctUs() {
     ]
     return (
         <section className="relative overflow-hidden">
-            <div className="container relative mx-auto px-4 py-16 md:py-24">
+            <div className="container relative mx-auto px-6 py-12 md:py-24">
                 <div className="grid gap-12 lg:grid-cols-2">
                     {/* Left Column */}
                     <motion.div
@@ -33,7 +33,7 @@ export default function ContsctUs() {
                         className="space-y-8"
                     >
                         <div className="space-y-4">
-                            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+                            <h2 className="text-3xl lg:text-3xl font-bold text-center lg:text-start tracking-tight md:text-5xl">
                                 Let&apos;s Work Together!
                             </h2>
                             <p className="text-muted-foreground text-sm">

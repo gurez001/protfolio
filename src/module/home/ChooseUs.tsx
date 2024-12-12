@@ -66,7 +66,7 @@ const containerVariants = {
 
 export default function ChooseUs() {
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-8 lg:py-16 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-8 items-center mb-8 lg:mb-12">
           <div className="max-w-[400px] m-auto w-full relative">

@@ -49,7 +49,7 @@ export default function TechnologyStack() {
     }
 
     return (
-        <section className=" px-4 py-8 bg-white">
+        <section className="px-4 py-6 lg:py-8 bg-white">
 
             <div className="container mx-auto max-w-7xl">
                 <motion.div

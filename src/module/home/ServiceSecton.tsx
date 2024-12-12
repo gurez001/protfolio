@@ -99,7 +99,7 @@ export default function ServiceSection() {
   ), [])
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-8 lg:py-16 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl font-bold tracking-tight mb-4 md:text-4xl lg:text-5xl">

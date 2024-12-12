@@ -38,7 +38,7 @@ export const faqData: FAQItem[] = [
 
 export default function FAQAccordion() {
   return (
-    <section className="my-8 container mx-6 items-center mx-auto px-4 flex flex-col lg:flex-row  gap-6">
+    <section className="my-4 lg:my-8 container mx-6 items-center mx-auto px-4 flex flex-col lg:flex-row gap-6">
       <div className="w-full lg:w-[60%] order-2 lg:order-1">
       <Accordion type="single" collapsible className="space-y-4 w-full ">
         {faqData.map((faq: FAQItem, index: number) => (
@@ -54,7 +54,7 @@ export default function FAQAccordion() {
       </Accordion>
       </div>
       <div className="w-full lg:w-[40%] order-1 lg:order-2">
-        <h2 className="text-3xl lg:text-7xl font-bold mb-6 text-center">Frequently <span className="text-gray-500">Asked</span> Questions</h2>
+        <h2 className="text-3xl lg:text-7xl font-bold mb-0 lg:mb-6 text-center">Frequently <span className="text-gray-500">Asked</span> Questions</h2>
       </div>
     </section>
   );

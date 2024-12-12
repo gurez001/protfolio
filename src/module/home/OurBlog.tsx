@@ -28,7 +28,7 @@ export default function OurBlog() {
   const { data: apiData } = data || {};
 
   return (
-    <section className=" px-4 py-16">
+    <section className="px-6 py-8 lg:py-16">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
