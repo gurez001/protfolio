@@ -39,7 +39,6 @@ const reviews: Review[] = [
 
 export default function ReviewCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
-
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length)
   }
