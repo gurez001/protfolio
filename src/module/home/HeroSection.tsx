@@ -1,82 +1,163 @@
+import InfintySliderTb from "@/components/common/InfintySliderTb"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowUpRight, MoveRight, Plus, Star } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Moon, MoveRight, Plus, Star } from 'lucide-react'
 import Image from "next/image"
+import { ProjectStatusCard } from "./project-status-card"
+import TestimonialSlider from "@/components/common/testimonial-slider"
 // import { TrekCarousel } from "./trek-carousel"
 
 export default function HeroSection() {
   return (
-    <div className="min-h-screen bg-white">
-    <div className="container mx-auto px-4 py-12">
-    <div className="flex relative items-center">
-          {/* Text Content */}
-          <div className="space-y-6 w-full md:w-1/2 lg:w-1/3">
-            {/* Mobile Background Image */}
-            <div className="block md:hidden z-0 absolute">
-              <Image
-                src="/assets/composition-with.webp"
-                fill
-                className="object-cover rounded-lg"
-                priority
-                alt="home"
-              />
-            </div>
-
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                Find the right <span className="text-gray-500">course</span> for you
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                See your personalised recommendations based on your interests and goals
-              </p>
-              <div className="flex items-center gap-4">
-                <Button size="lg" className="bg-black hover:bg-gray-200 hover:text-black">
-                  Discover Our Work
-                </Button>
-                <Button variant="link" className="text-black">
-                  View our blog
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
+    <section className="min-h-screen bg-gradient-to-b from-white to-gray-100">
+    <div className="flex-1 p-6 space-y-6">
+        {/* Hero Section */}
+        <div className="grid grid-cols-3 gap-6">
+          <Card className="col-span-2 bg-[#E8EDF0] overflow-hidden"
+           style={{
+                    backgroundImage: "url(/assets/composition-with.webp)",
+                    perspective: "1000px",
+                    backgroundRepeat:"no-repeat",
+                    backgroundSize:"cover"
+                  }}
+        >
+            <div className="p-8 flex justify-between items-start h-full relative bg-black/60">
+              <div className="space-y-6">
+                <h1 className="text-4xl font-semibold text-gray-100">
+                Your Business
+           <br />
+           Deserves to Shine
+                </h1>
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                      // <div key={i} className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white" />
+                      <Avatar key={i} className="w-10 h-10 border-1 border-white">
+                      <AvatarImage src={`/assets/avatar.webp`} alt={`User ${i+1}`} />
+                      <AvatarFallback>U{i+1}</AvatarFallback>
+                    </Avatar>
+                    ))}
+                  </div>
+                  <span className="text-base text-gray-100">
+                    <span className="font-semibold">500+</span> Members
+                  </span>
+                </div>
+                <Button variant="default" className="bg-black hover:bg-gray-200 hover:text-black text-white rounded-full">
+                  Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
+             
             </div>
-          </div>
+          </Card>
 
-          {/* Main Image */}
-          <div className="relative hidden md:block w-full md:w-1/2 lg:w-2/3 aspect-[16/9]">
-            <Image
-              src="/assets/composition-with.webp"
-              fill
-              className="object-cover rounded-lg"
-              priority
-              alt="home"
-            />
+          {/* Hydration Status */}
+          <Card className="bg-black">
+            {/* <div className="space-y-4">
+              <div>
+                <h3 className="font-medium">Hydration Status:</h3>
+                <p className="text-sm text-gray-600">Drinking 500ml water daily boosts your energy and enhances your focus.</p>
+              </div>
+              <div className="grid grid-cols-5 gap-1">
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-8 rounded ${i < 15 ? 'bg-white' : 'bg-white/30'}`}
+                  />
+                ))}
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="flex gap-2">
+                  <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center">D</span>
+                  <span className="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center">W</span>
+                  <span className="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center">M</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-4xl font-semibold">2.15L</span>
+                  <span className="text-sm block">/Day</span>
+                </div>
+              </div>
+            </div> */}
+               <InfintySliderTb />
+          </Card>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-3 gap-6">
+          {/* Sleep Section */}
+          <Card className="p-6">
+            <div className="space-y-4">
+            <div className="flex justify-between items-start">
+            <div className="flex -space-x-2">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="w-8 h-8 rounded-full bg-black/60 flex items-center justify-center">
+              <Star className="h-4 w-4 text-yellow-400" />
+            </div>  
+          ))}
+        </div>
+        <div className="flex items-center">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            ))}
+            <span className="ml-2 text-sm font-medium">4.9</span>
           </div>
         </div>
-        <div className="grid sm:grid-cols-3 w-[100%] gap-4 pt-8">
-            <Card className="p-6 bg-[#f8f9fa]">
-              <div className="text-sm text-muted-foreground">subjects</div>
-              <div className="text-3xl font-bold">+40</div>
-            </Card>
-            <Card className="p-6 bg-[#e9ecef]">
-              <div className="text-sm text-muted-foreground">courses</div>
-              <div className="text-3xl font-bold">+120</div>
-            </Card>
-            <Card className="p-6 bg-[#ffd43b]">
-              <div className="text-sm text-muted-foreground flex items-center gap-1">
-                <Star className="h-4 w-4 fill-current" />
-                5.0
-              </div>
-              <div className="text-3xl font-bold">+180k</div>
-              <div className="text-sm text-muted-foreground">learner reviews</div>
-            </Card>
-          </div>
-      <div>
-     
+              <h3 className="text-xl font-semibold">
+              Experience the Excellence of Karnalweb Tech 
+              </h3>
+              <Button variant="outline" className="rounded-full">
+          <Star className="mr-2 h-4 w-4" />
+          Top-rated service
+        </Button>
+        <p className="text-sm text-gray-600">
+          Discover innovative solutions and cutting-edge technology. Partner with Karnalweb Tech for unparalleled digital experiences and robust web applications.
+        </p>
+            </div>
+          </Card>
+
+          {/* Calories Section */}
+          <ProjectStatusCard
+          totalProjects={124} 
+          completedProjects={118}
+          onTrackProjects={6}
+          delayedProjects={1}
+        />
+
+            <TestimonialSlider/>
+        </div>
       </div>
-    </div>
-  </div>
+  </section>
   )
 }
+
+
+// interface StatCardProps {
+//   label: string
+//   value: string
+//   bgColor: string
+//   icon?: React.ReactNode
+//   rating?: string
+// }
+
+// function StatCard({ label, value, bgColor, icon, rating }: StatCardProps) {
+//   return (
+//     <Card className={`p-6 ${bgColor} hover:scale-105 transition-transform duration-300`}>
+//       <div className="flex justify-between items-start">
+//         <div>
+//           <div className="text-4xl font-bold">{value}</div>
+//           <div className="text-sm text-muted-foreground mt-1">{label}</div>
+//         </div>
+//         {icon && (
+//           <div className={`flex items-center gap-1 text-sm font-medium ${rating && "text-yellow"}`}>
+//             {icon}
+//             {rating}
+//           </div>
+//         )}
+//       </div>
+//     </Card>
+//   )
+// }
+
 
 
 // "use client";
