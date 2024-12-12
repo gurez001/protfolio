@@ -11,10 +11,10 @@ import TestimonialSlider from "@/components/common/testimonial-slider"
 export default function HeroSection() {
   return (
     <section className="min-h-screen bg-gradient-to-b from-white to-gray-100">
-    <div className="flex-1 p-6 space-y-6">
+    <div className="flex-1 p-4 lg:p-6 space-y-6">
         {/* Hero Section */}
-        <div className="grid grid-cols-3 gap-6">
-          <Card className="col-span-2 bg-[#E8EDF0] overflow-hidden"
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0  lg:gap-6">
+          <Card className="col-span-2 bg-[#E8EDF0] mb-4 lg:mb-0 overflow-hidden"
            style={{
                     backgroundImage: "url(/assets/composition-with.webp)",
                     perspective: "1000px",
@@ -29,6 +29,11 @@ export default function HeroSection() {
            <br />
            Deserves to Shine
                 </h1>
+                <p className="mb-8 max-w-2xl text-base text-white md:text-lg">
+           We empower startups and brands by creating innovative, engaging,
+           and tailored software solutions that drive success and make an
+           impact.
+         </p>
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {Array.from({ length: 3 }).map((_, i) => (
@@ -83,9 +88,9 @@ export default function HeroSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-6">
           {/* Sleep Section */}
-          <Card className="p-6">
+          <Card className="p-6  mb-4 lg:mb-0">
             <div className="space-y-4">
             <div className="flex justify-between items-start">
             <div className="flex -space-x-2">
@@ -114,7 +119,7 @@ export default function HeroSection() {
         </p>
             </div>
           </Card>
-
+<div className="mb-4 lg:mb-0">
           {/* Calories Section */}
           <ProjectStatusCard
           totalProjects={124} 
@@ -122,8 +127,10 @@ export default function HeroSection() {
           onTrackProjects={6}
           delayedProjects={1}
         />
-
+</div>
+<div className="mb-4 lg:mb-0">
             <TestimonialSlider/>
+</div>
         </div>
       </div>
   </section>

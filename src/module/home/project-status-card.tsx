@@ -20,7 +20,7 @@ export function ProjectStatusCard({
     const completionPercentage = Math.round((completedProjects / totalProjects) * 100)
 
     return (
-        <Card className="w-full max-w-2xl">
+        <Card className="">
             <CardHeader>
                 <div className="flex justify-between items-start">
                     <div>
