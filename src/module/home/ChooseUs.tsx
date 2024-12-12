@@ -68,9 +68,9 @@ export default function ChooseUs() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
-          <div className="h-[200px] max-w-[400px] m-auto w-full pb-2 relative">
-          <h2 className="text-7xl font-bold mb-6">
+        <div className="grid lg:grid-cols-2 gap-8 items-center mb-8 lg:mb-12">
+          <div className="max-w-[400px] m-auto w-full relative">
+          <h2 className="text-4xl lg:text-7xl font-bold">
               <span className="text-gray-500">Why</span> Choose Us <span className="text-gray-500">?</span>
             </h2>
           </div>
