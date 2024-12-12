@@ -14,17 +14,24 @@ export default function HeroSection() {
     <div className="flex-1 p-4 lg:p-6 space-y-6">
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0  lg:gap-6">
-          <Card className="col-span-2 bg-[#E8EDF0] mb-4 lg:mb-0 overflow-hidden"
-           style={{
+          <Card className="relative col-span-2 bg-[#E8EDF0] mb-4 lg:mb-0 overflow-hidden"
+           
+        >
+          <div className="absolute z-0" style={{
+
                     backgroundImage: "url(/assets/composition-with.webp)",
                     perspective: "1000px",
                     backgroundRepeat:"no-repeat",
-                    backgroundSize:"cover"
-                  }}
-        >
-            <div className="p-8 flex justify-between items-start h-full relative bg-black/60">
+                    backgroundSize:"cover",
+                   filter: "blur(3px)",
+                   width:"100%",
+                   height:"100%",
+                  }}>
+
+          </div>
+            <div className="p-8 flex justify-between items-start h-full relative bg-black/70">
               <div className="space-y-6">
-                <h1 className="text-4xl font-semibold text-gray-100">
+                <h1 className="text-5xl font-semibold text-gray-100">
                 Your Business
            <br />
            Deserves to Shine
